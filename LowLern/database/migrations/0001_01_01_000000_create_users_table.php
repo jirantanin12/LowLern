@@ -17,6 +17,10 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+
+        // 🔹 เพิ่มคอลัมน์ role (ADMIN / SIBLING)
+            $table->enum('role', ['ADMIN', 'SIBLING'])->default('SIBLING');
+
             $table->rememberToken();
             $table->timestamps();
         });
